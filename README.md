@@ -193,7 +193,7 @@ The `@errorResponse` decorator get an optional `OpenAPIV3.ResponsesObject` as fi
 ```ts
 class HelloWorld extends Endpoint {
     @errorResponse()
-    errorConflict = new Error(`Device is already linked to another user`);
+    errorConflict = new Error(`This endpoint is in conflict.`);
 
     async handler() {
         throw this.errorConflict;
@@ -210,7 +210,7 @@ class Conflict extends Error {
 
 class HelloWorld extends Endpoint {
     @errorResponse()
-    errorConflict = new Conflict(`Device is already linked to another user`);
+    errorConflict = new Conflict(`This endpoint is in conflict.`);
 
     async handler() {
         throw this.errorConflict;
@@ -225,7 +225,7 @@ import { Conflict } from 'http-errors';
 
 class HelloWorld extends Endpoint {
     @errorResponse()
-    errorConflict = new Conflict(`Device is already linked to another user`);
+    errorConflict = new Conflict(`This endpoint is in conflict.`);
 
     async handler() {
         throw this.errorConflict;
