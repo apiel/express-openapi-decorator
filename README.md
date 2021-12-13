@@ -204,8 +204,6 @@ class HelloWorld extends Endpoint {
 Or with status code
 
 ```ts
-import { Conflict } from 'http-errors';
-
 class Conflict extends Error {
     statusCode = 409;
 }
