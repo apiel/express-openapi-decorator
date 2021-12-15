@@ -2,6 +2,26 @@
 
 An opiniated library using decorators in order to define openAPI documentation for an expressJs endpoint.
 
+```ts
+@doc({
+    summary: 'This endpoint will display Hello world.',
+})
+class HelloWorld extends Endpoint {
+    @queryParam({ description: 'The name of person to great.', example: 'Alex' })
+    name?: string;
+
+    @errorResponse()
+    errorForbidden = new Error(`This name is forbidden.`);
+
+    handler() {
+        if (this.name === 'voldemort') {
+            throw this.errorForbidden;
+        }
+        this.res.send(`Hello ${this.name || 'world'}`);
+    }
+}
+```
+
 > This library is not a validator. To validate incoming request use [express-openapi-validator](https://www.npmjs.com/package/express-openapi-validator)
 
 ## How to use
