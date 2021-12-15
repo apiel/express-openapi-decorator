@@ -1,6 +1,6 @@
 {
     "name": "express-openapi-decorator",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "An opiniated library using decorators in order to define openAPI documentation for an endpoint.",
     "main": "dist",
     "types": "dist",

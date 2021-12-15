@@ -164,12 +164,11 @@ The `@pathParam` decorator get an `OpenAPIV3.ParameterBaseObject` as first param
 
 ```ts
 class HelloWorld extends Endpoint {
-    @pathParam({ description: 'id of the device.', required: true, example: 123 })
-    deviceId!: number;
+    @pathParam({ description: 'The name of person to great.', required: true, example: 'Alex' })
+    name!: string;
 
-    async handler() {
-        const device = await getDevice(this.deviceId);
-        // ...
+    handler() {
+        this.res.send(`Hello ${this.name}`);
     }
 }
 ```
@@ -180,12 +179,11 @@ The `@queryParam` decorator get an `OpenAPIV3.ParameterBaseObject` as first para
 
 ```ts
 class HelloWorld extends Endpoint {
-    @queryParam({ description: 'id of the device.', required: true, example: 123 })
-    deviceId!: number;
+    @queryParam({ description: 'The name of person to great.', required: true, example: 'Alex' })
+    name!: string;
 
-    async handler() {
-        const device = await getDevice(this.deviceId);
-        // ...
+    handler() {
+        this.res.send(`Hello ${this.name}`);
     }
 }
 ```
@@ -196,12 +194,11 @@ The `@bodyProp` decorator get an `OpenAPIV3.BodySchema` as first parameter, to d
 
 ```ts
 class HelloWorld extends Endpoint {
-    @bodyProp({ description: 'id of the device.', required: true, example: 123 })
-    deviceId!: number;
+    @bodyProp({ description: 'The name of person to great.', required: true, example: 'Alex' })
+    name!: string;
 
-    async handler() {
-        const device = await getDevice(this.deviceId);
-        // ...
+    handler() {
+        this.res.send(`Hello ${this.name}`);
     }
 }
 ```
